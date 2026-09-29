@@ -10,10 +10,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
 :root{
-  --paper:#F1EDE6;
-  --ink:#141414;
-  --accent:#C1502E;
-  --blue:#16233D;
+  --paper:#FFFFFF;
+  --ink:#0A0A0A;
+  --accent:#0A0A0A;
+  --blue:#0A0A0A;
   --line:rgba(20,20,20,.14);
   --font-display:'Anton',sans-serif;
   --font-body:'Archivo',sans-serif;
@@ -55,22 +55,22 @@ a{color:inherit;text-decoration:none}
 #preloader .word span{display:inline-block}
 #preloader .count{font-size:.85rem;letter-spacing:.35em;opacity:.6}
 #preloader .bar{width:min(320px,60vw);height:1px;background:rgba(241,237,230,.2);position:relative;overflow:hidden}
-#preloader .bar i{position:absolute;inset:0;background:var(--accent);transform:scaleX(0);transform-origin:left}
+#preloader .bar i{position:absolute;inset:0;background:#fff;transform:scaleX(0);transform-origin:left}
 
 /* ---------- cursor ---------- */
 .cursor-dot,.cursor-ring{position:fixed;top:0;left:0;pointer-events:none;z-index:2500;border-radius:50%}
-.cursor-dot{width:8px;height:8px;background:var(--accent);transform:translate(-50%,-50%)}
+.cursor-dot{width:8px;height:8px;background:#fff;mix-blend-mode:difference;transform:translate(-50%,-50%)}
 .cursor-ring{
-  width:44px;height:44px;border:1px solid rgba(193,80,46,.7);
+  width:44px;height:44px;border:1px solid rgba(255,255,255,.9);mix-blend-mode:difference;
   transform:translate(-50%,-50%);
   display:flex;align-items:center;justify-content:center;
   transition:width .35s cubic-bezier(.22,1,.36,1),height .35s cubic-bezier(.22,1,.36,1),background .35s;
 }
 .cursor-ring .label{
-  font-size:.6rem;letter-spacing:.2em;color:var(--paper);opacity:0;transition:opacity .25s;
+  font-size:.6rem;letter-spacing:.2em;color:#fff;opacity:0;transition:opacity .25s;
   font-weight:600;
 }
-.cursor-ring.is-hover{width:92px;height:92px;background:rgba(193,80,46,.92);border-color:transparent}
+.cursor-ring.is-hover{width:92px;height:92px;background:#0A0A0A;border-color:#0A0A0A;mix-blend-mode:normal}
 .cursor-ring.is-hover .label{opacity:1}
 @media (hover:none),(pointer:coarse){.cursor-dot,.cursor-ring{display:none}}
 
@@ -121,19 +121,19 @@ h1.display .line-inner{display:block}
 .hero-foot{display:flex;justify-content:space-between;align-items:center;margin-top:2rem;color:var(--paper)}
 .hero-foot p{max-width:34ch;font-size:.95rem;line-height:1.6;opacity:.85}
 .scroll-hint{font-size:.75rem;letter-spacing:.3em;display:flex;align-items:center;gap:.8rem}
-.scroll-hint .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);animation:pulse 1.6s infinite}
+.scroll-hint .dot{width:8px;height:8px;border-radius:50%;background:#fff;animation:pulse 1.6s infinite}
 @keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.6);opacity:.4}}
 
 /* ---------- marquee ---------- */
 .marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;padding:1.1rem 0;background:var(--paper)}
 .marquee-track{display:flex;gap:3rem;width:max-content;animation:marquee 22s linear infinite;font-family:var(--font-display);font-size:1.6rem;letter-spacing:.05em;white-space:nowrap}
-.marquee-track .sep{color:var(--accent)}
+.marquee-track .sep{color:var(--ink)}
 @keyframes marquee{to{transform:translateX(-50%)}}
 
 /* ---------- sections ---------- */
 section{padding:clamp(5rem,10vw,9rem) clamp(1.2rem,4vw,3rem)}
 .sec-head{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--line);padding-bottom:1rem;margin-bottom:clamp(2.5rem,5vw,4.5rem)}
-.sec-head .num{font-size:.8rem;letter-spacing:.25em;color:var(--accent);font-weight:600}
+.sec-head .num{font-size:.8rem;letter-spacing:.25em;color:var(--ink);font-weight:600}
 .sec-head h2{font-family:var(--font-display);font-size:clamp(2rem,5vw,4rem);text-transform:uppercase;letter-spacing:.02em}
 .sec-head .side{font-size:.8rem;letter-spacing:.18em;opacity:.55}
 
@@ -143,24 +143,25 @@ section{padding:clamp(5rem,10vw,9rem) clamp(1.2rem,4vw,3rem)}
 }
 .manifeste p.big .w{opacity:.14}
 .manifeste .sign{margin-top:3rem;display:flex;gap:1.2rem;align-items:center}
-.manifeste .sign .rule{width:64px;height:2px;background:var(--accent)}
+.manifeste .sign .rule{width:64px;height:2px;background:var(--ink)}
 .manifeste .sign span{font-size:.85rem;letter-spacing:.2em}
 
 /* ---------- blueprint ---------- */
 #approche{background:var(--blue);color:var(--paper);position:relative;overflow:hidden}
-#approche .sec-head{border-color:rgba(241,237,230,.18)}
+#approche .sec-head{border-color:rgba(255,255,255,.18)}
+#approche .sec-head .num{color:var(--paper)}
 #approche .sec-head .side{opacity:.6}
 .blueprint-wrap{position:relative}
 #blueprint{width:100%;height:auto;display:block}
 #blueprint .draw{fill:none;stroke:var(--paper);stroke-width:1.6;stroke-dasharray:1;stroke-dashoffset:1;opacity:.92}
 #blueprint .thin{stroke-width:1;opacity:.4}
-#blueprint .dim{stroke:var(--accent);stroke-width:1.2}
+#blueprint .dim{stroke:var(--paper);stroke-width:1.2}
 #blueprint text{fill:var(--paper);font-family:var(--font-body);font-size:13px;letter-spacing:.18em;opacity:.75}
 #blueprint .grid{stroke:rgba(241,237,230,.07);stroke-width:1}
 .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(241,237,230,.15);border:1px solid rgba(241,237,230,.15);margin-top:3.5rem}
 .step{background:var(--blue);padding:1.8rem 1.4rem;transition:background .4s}
-.step:hover{background:#1d2c4d}
-.step .n{font-family:var(--font-display);color:var(--accent);font-size:1.4rem;margin-bottom:.9rem}
+.step:hover{background:#161616}
+.step .n{font-family:var(--font-display);color:var(--paper);font-size:1.4rem;margin-bottom:.9rem}
 .step h3{font-size:1.05rem;letter-spacing:.06em;margin-bottom:.6rem;font-weight:600}
 .step p{font-size:.88rem;line-height:1.65;opacity:.65}
 @media(max-width:860px){.steps{grid-template-columns:1fr 1fr}}
@@ -172,7 +173,7 @@ section{padding:clamp(5rem,10vw,9rem) clamp(1.2rem,4vw,3rem)}
   padding:2.2rem 0;border-bottom:1px solid var(--line);position:relative;
 }
 .projet:first-of-type{border-top:1px solid var(--line)}
-.projet .idx{font-family:var(--font-display);font-size:1.1rem;color:var(--accent)}
+.projet .idx{font-family:var(--font-display);font-size:1.1rem;color:var(--ink)}
 .projet h3{
   font-family:var(--font-display);font-size:clamp(1.8rem,4.6vw,3.6rem);text-transform:uppercase;
   letter-spacing:.02em;line-height:1;transition:transform .5s cubic-bezier(.22,1,.36,1),color .4s;
@@ -180,11 +181,11 @@ section{padding:clamp(5rem,10vw,9rem) clamp(1.2rem,4vw,3rem)}
 .projet .meta{font-size:.85rem;letter-spacing:.14em;opacity:.6;white-space:nowrap}
 .projet .cat{font-size:.75rem;letter-spacing:.2em;border:1px solid var(--line);border-radius:99px;padding:.5rem 1.1rem;white-space:nowrap}
 .projet::after{
-  content:'';position:absolute;left:0;bottom:-1px;height:1px;width:100%;background:var(--accent);
+  content:'';position:absolute;left:0;bottom:-1px;height:1px;width:100%;background:var(--ink);
   transform:scaleX(0);transform-origin:left;transition:transform .6s cubic-bezier(.22,1,.36,1);
 }
 .projet:hover::after{transform:scaleX(1)}
-.projet:hover h3{transform:translateX(14px);color:var(--accent)}
+.projet:hover h3{transform:translateX(14px)}
 @media(max-width:720px){.projet{grid-template-columns:44px 1fr}.projet .meta,.projet .cat{display:none}}
 
 /* ---------- stats ---------- */
@@ -192,7 +193,7 @@ section{padding:clamp(5rem,10vw,9rem) clamp(1.2rem,4vw,3rem)}
 .stat{padding:2.6rem 1.5rem;border-left:1px solid var(--line);text-align:left}
 .stat:first-child{border-left:none}
 .stat .val{font-family:var(--font-display);font-size:clamp(2.4rem,5vw,4.2rem);color:var(--ink)}
-.stat .val em{font-style:normal;color:var(--accent)}
+.stat .val em{font-style:normal}
 .stat .lbl{margin-top:.6rem;font-size:.8rem;letter-spacing:.2em;opacity:.55}
 @media(max-width:720px){.stats{grid-template-columns:1fr 1fr}.stat:nth-child(3){border-left:none}.stat{border-top:1px solid var(--line)}.stat:nth-child(-n+2){border-top:none}}
 
@@ -208,15 +209,15 @@ section{padding:clamp(5rem,10vw,9rem) clamp(1.2rem,4vw,3rem)}
 
 /* ---------- contact ---------- */
 #contact{background:var(--ink);color:var(--paper);text-align:left;position:relative;overflow:hidden}
-#contact .kicker{font-size:.8rem;letter-spacing:.3em;color:var(--accent);margin-bottom:1.6rem;font-weight:600}
+#contact .kicker{font-size:.8rem;letter-spacing:.3em;color:var(--paper);margin-bottom:1.6rem;font-weight:600}
 #contact h2{font-family:var(--font-display);font-size:clamp(2.6rem,8.5vw,8rem);line-height:.95;text-transform:uppercase}
 #contact h2 .line{display:block;overflow:hidden}
 #contact h2 .line-inner{display:block}
 #contact .mail{
   display:inline-block;margin-top:3rem;font-size:clamp(1.1rem,2.6vw,1.8rem);letter-spacing:.04em;
-  border-bottom:2px solid var(--accent);padding-bottom:.4rem;transition:color .3s;
+  border-bottom:2px solid var(--paper);padding-bottom:.4rem;transition:opacity .3s;
 }
-#contact .mail:hover{color:var(--accent)}
+#contact .mail:hover{opacity:.6}
 footer{background:var(--ink);color:var(--paper);border-top:1px solid rgba(241,237,230,.15);padding:1.6rem clamp(1.2rem,4vw,3rem);display:flex;justify-content:space-between;font-size:.75rem;letter-spacing:.18em;opacity:.85}
 footer span:last-child{opacity:.6}
 
@@ -269,7 +270,7 @@ footer span:last-child{opacity:.6}
     </div>
     <h1 class="display">
       <span class="line"><span class="line-inner">L'ARCHITECTURE</span></span>
-      <span class="line"><span class="line-inner">COMME ÉVIDENCE<span style="color:var(--accent)">.</span></span></span>
+      <span class="line"><span class="line-inner">COMME ÉVIDENCE<span style="color:#fff">.</span></span></span>
     </h1>
     <div class="hero-foot">
       <p>Nous dessinons des lieux qui durent — entre matière brute, lumière maîtrisée et justesse du geste.</p>
@@ -397,7 +398,7 @@ footer span:last-child{opacity:.6}
     <div class="kicker" data-reveal>05 — CONTACT</div>
     <h2>
       <span class="line"><span class="line-inner">Donnons forme</span></span>
-      <span class="line"><span class="line-inner">à votre projet<span style="color:var(--accent)">.</span></span></span>
+      <span class="line"><span class="line-inner">à votre projet<span style="color:#fff">.</span></span></span>
     </h2>
     <a class="mail" href="mailto:bonjour@atelier-monolithe.ma" data-hover data-reveal>bonjour@atelier-monolithe.ma</a>
   </section>
